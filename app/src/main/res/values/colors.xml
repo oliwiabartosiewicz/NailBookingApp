@@ -16,6 +16,7 @@
     <color name="green">#C2F4C2</color>
     <color name="blue">#0000FF</color>
     <color name="navy">#000080</color>
-    <color name="pink">#F4C2F4</color>
-    <color name="dark_pink">#FF007F</color>
+    //<color name="pinki">#F4C2F4</color>
+    <color name="pink">#FFE3F5</color>
+    <color name="dark_pink">#CE5DAE</color>
 </resources>

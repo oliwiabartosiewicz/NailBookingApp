@@ -1,7 +1,9 @@
 package com.example.bookingapp;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -15,16 +17,23 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class SignupActivity extends AppCompatActivity {
+    Button signupclicked;
 
     private FirebaseAuth mAuth;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
         mAuth = FirebaseAuth.getInstance();
-    }
+        signupclicked = findViewById(R.id.buttonSignupSubmit);
+        signupclicked.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                signupButtonClicked(v);
+            }
+        });
 
+}
 
     public void signupButtonClicked(View view){
         EditText email = findViewById(R.id.editTextEmail);
@@ -43,6 +52,8 @@ public class SignupActivity extends AppCompatActivity {
                             Log.d("SignupActivity", "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             Toast.makeText(SignupActivity.this, "Authentication success.", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(SignupActivity.this, host.class);
+                            startActivity(intent);
 
                         } else {
                             Log.w("SignupActivity", "createUserWithEmail:failure", task.getException());
