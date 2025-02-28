@@ -25,8 +25,6 @@ public class host extends AppCompatActivity implements NavigationBarView.OnItemS
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
-
-
         });
 
         BottomNavigationView bnv = findViewById(R.id.bottomNavigationView);
