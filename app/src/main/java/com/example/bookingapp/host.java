@@ -48,7 +48,10 @@ public class host extends AppCompatActivity implements NavigationBarView.OnItemS
             return true;
 
         }else if (item.getItemId() == R.id.about_us){
-            replaceFragment(new GalleryFragment());
+            replaceFragment(new About_us_Fragment());
+            return true;
+        }else if (item.getItemId() == R.id.booking){
+            replaceFragment(new BookingFragment());
             return true;
         }
         return false;

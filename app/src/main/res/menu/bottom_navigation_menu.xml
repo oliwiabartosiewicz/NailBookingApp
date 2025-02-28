@@ -11,6 +11,10 @@
         android:icon="@drawable/gallery_icon"
         android:title="Gallery"/>
 
+    <item android:id="@+id/booking"
+        android:icon="@drawable/booking_icon"
+        android:title="Booking"/>
+
     <item android:id="@+id/about_us"
         android:icon="@drawable/about_us_icon"
         android:title="About us "/>
