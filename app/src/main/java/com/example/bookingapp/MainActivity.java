@@ -7,7 +7,12 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class MainActivity extends AppCompatActivity {
+FirebaseAuth mAuth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,5 +38,19 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(signupIntent);
             }
         });
+
+
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        mAuth=FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if (currentUser != null) {
+            Intent intent = new Intent(this, host.class);
+            startActivity(intent);
+        }
+    }
+
 }

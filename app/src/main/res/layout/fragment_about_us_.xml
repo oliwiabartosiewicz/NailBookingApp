@@ -6,6 +6,11 @@
     android:background="@color/pink"
     tools:context=".About_us_Fragment">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        >
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -15,12 +20,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="91dp"
-            android:text="\nAbout LiwsNailz! ✨"
             android:fontFamily="sans-serif-light"
+            android:text="\nAbout LiwsNailz! ✨"
+            android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="34sp"
-            android:textStyle="bold"
-            android:textAlignment="center" />
+            android:textStyle="bold" />
 
         <TextView
 
@@ -38,18 +43,33 @@ Come along as I learn and develop—your support means everything! Let’s creat
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:textSize="30dp"
-            android:text="Contact us"
             android:fontFamily="sans-serif-light"
-            android:textColor="@color/black"/>
+            android:text="Contact us"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="30dp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/email">
+        </ImageView>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawablePadding="8dp"
             android:text="Email: info@liwsnailz.com"
-            android:textSize="18sp"/>
+            android:textSize="18sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/phone">
+        </ImageView>
+
 
         <TextView
             android:layout_width="wrap_content"
@@ -58,38 +78,89 @@ Come along as I learn and develop—your support means everything! Let’s creat
             android:text="Phone number: +44 123 456 789"
             android:textSize="18sp" />
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/instagram">
+        </ImageView>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawablePadding="8dp"
-            android:text="Instagram: LiwsNailz"
+            android:text="Instagram: LiwsNailz\n"
             android:textSize="18sp" />
 
-        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/about_text"
+                android:id="@+id/findUsHere_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Find us here "
-                android:textSize="20sp"
-                android:textColor="@color/black"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp"/>
+                android:layout_marginTop="20dp"
+                android:fontFamily="sans-serif-light"
+                android:text="Find us here "
+                android:layout_marginBottom="20dp"
+                android:textColor="@color/black"
+                android:textSize="30sp" />
 
             <!--Map-->
             <fragment
                 android:id="@+id/map"
+                class="com.google.android.gms.maps.SupportMapFragment"
                 android:layout_width="match_parent"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:layout_height="250dp"
-                android:layout_below="@id/about_text"
-                class="com.google.android.gms.maps.SupportMapFragment"/>
-
+                android:layout_below="@id/findUsHere_text" />
         </RelativeLayout>
+
+        <TextView
+            android:id="@+id/clickHereForDirections_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/map"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="sans-serif-light"
+            android:text="Click here for directions"
+            android:textColor="@color/blue"
+            android:textStyle="bold"
+            android:textSize="20sp"
+             />
+
+        <TextView
+                android:id="@+id/openingHours_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/clickHereForDirections_text"
+                android:layout_marginTop="3dp"
+                android:fontFamily="sans-serif-light"
+                android:text="Opening hours"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:layout_centerHorizontal="true"/>
+
+            <TextView
+                android:id="@+id/openingHours"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/openingHours_text"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="sans-serif-light"
+                android:text="Monday:17:00-22:00\nTuesday:17:00-22:00\nWednesday17:00-22:00\nThursday17:00-22:00\nFriday17:00-22:00\nSaturday:10:00-20:00\nSunday:12:00-20:00"
+                android:textColor="@color/black"
+                android:textSize="15dp" />
+
+
     </LinearLayout>
 
-
-
+    </ScrollView>
 </FrameLayout>
