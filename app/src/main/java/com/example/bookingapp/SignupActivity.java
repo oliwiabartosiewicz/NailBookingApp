@@ -36,8 +36,8 @@ public class SignupActivity extends AppCompatActivity {
 }
 
     public void signupButtonClicked(View view){
-        EditText email = findViewById(R.id.editTextEmail);
-        EditText password = findViewById(R.id.editTextPassword);
+        EditText email = findViewById(R.id.editTextSignupEmail);
+        EditText password = findViewById(R.id.editTextSignupPassword);
         String sEmail = email.getText().toString();
         String sPassword = password.getText().toString();
         signup(sEmail, sPassword);

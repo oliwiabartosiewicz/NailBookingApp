@@ -6,39 +6,90 @@
     android:background="@color/pink"
     tools:context=".About_us_Fragment">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="91dp"
+            android:text="\nAbout LiwsNailz! ✨"
+            android:fontFamily="sans-serif-light"
+            android:textColor="@color/black"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            android:textAlignment="center" />
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="
+Hi there! I’m a beginner nail tech with a passion for creativity and beauty. LiwsNailz is my little space where I’m learning, growing, and perfecting my skills—one set at a time!\n
+
+I’m all about experimenting with new designs, techniques, and styles, and I’d love for you to be part of this journey. Whether you're after a simple, classy look or something bold and unique, I’m here to bring your nail ideas to life while refining my craft.\n
+
+Come along as I learn and develop—your support means everything! Let’s create something beautiful together. 💖\n"
+            android:textAlignment="center"
+            android:textSize="15dp" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:textSize="30dp"
-            android:text="About us Fragment" />
-    </LinearLayout>
-
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+            android:text="Contact us"
+            android:fontFamily="sans-serif-light"
+            android:textColor="@color/black"/>
 
         <TextView
-            android:id="@+id/about_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="How to find us"
-            android:textSize="20sp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"/>
+            android:drawablePadding="8dp"
+            android:text="Email: info@liwsnailz.com"
+            android:textSize="18sp"/>
 
-        <!--Map box-->
-        <fragment
-            android:id="@+id/map"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="8dp"
+            android:text="Phone number: +44 123 456 789"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="8dp"
+            android:text="Instagram: LiwsNailz"
+            android:textSize="18sp" />
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:layout_below="@id/about_text"
-            class="com.google.android.gms.maps.SupportMapFragment"/>
+            android:layout_height="match_parent">
 
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/about_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Find us here "
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"/>
+
+            <!--Map-->
+            <fragment
+                android:id="@+id/map"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_below="@id/about_text"
+                class="com.google.android.gms.maps.SupportMapFragment"/>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+
+
 </FrameLayout>
