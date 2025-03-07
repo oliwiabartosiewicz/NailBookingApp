@@ -57,11 +57,14 @@ Come along as I learn and develop—your support means everything! Let’s creat
         </ImageView>
 
         <TextView
+            android:id="@+id/email_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawablePadding="8dp"
             android:text="Email: info@liwsnailz.com"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:clickable="true"
+            android:focusable="true"
+            android:textColor="@color/blue"/>
 
         <ImageView
             android:layout_width="wrap_content"
@@ -72,11 +75,14 @@ Come along as I learn and develop—your support means everything! Let’s creat
 
 
         <TextView
+            android:id="@+id/phone_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawablePadding="8dp"
             android:text="Phone number: +44 123 456 789"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:clickable="true"
+            android:focusable="true"
+            android:textColor="@color/blue"/>
 
         <ImageView
             android:layout_width="wrap_content"
@@ -86,11 +92,14 @@ Come along as I learn and develop—your support means everything! Let’s creat
         </ImageView>
 
         <TextView
+            android:id="@+id/instagram_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawablePadding="8dp"
             android:text="Instagram: LiwsNailz\n"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:clickable="true"
+            android:focusable="true"
+            android:textColor="@color/blue"/>
 
 
         <RelativeLayout
@@ -132,6 +141,8 @@ Come along as I learn and develop—your support means everything! Let’s creat
             android:textColor="@color/blue"
             android:textStyle="bold"
             android:textSize="20sp"
+            android:clickable="true"
+            android:focusable="true"
              />
 
         <TextView
