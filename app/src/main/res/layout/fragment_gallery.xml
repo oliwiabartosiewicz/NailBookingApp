@@ -8,28 +8,282 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="match_parent">
 
-        >
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center">
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:text="Gallery"
-            android:textColor="@color/black"
-            android:textSize="34sp"
-            android:textStyle="bold"
-            android:fontFamily="sans-serif-light"/>
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="16dp">
+
+            <!-- Title -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="Gallery"
+                android:textColor="@color/black"
+                android:textSize="34sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-light"
+                android:layout_marginBottom="20dp"/>
+
+            <TextView
+                android:id="@+id/almond_heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ALMOND DESIGNS"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:layout_marginBottom="10dp"/>
+
+            <ImageView
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:src="@drawable/almond_silver"
+                android:scaleType="centerCrop"
+                android:layout_marginBottom="10dp"/>
 
 
+            <TextView
+                android:id="@+id/almond_silver"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Silver Almond deisgn with baby pink base."
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:padding="10dp"/>
+
+            <ImageView
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:src="@drawable/almond_red"
+                android:scaleType="centerCrop"
+                android:layout_marginBottom="10dp"/>
 
 
+            <TextView
+                android:id="@+id/almond_red"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Almond with lepard print, red air brush effect."
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:padding="10dp"/>
 
-    </LinearLayout>
-</ScrollView>
+            <TextView
+                android:id="@+id/long_square"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LONG SQUARE DESIGNS"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:layout_marginBottom="10dp"/>
+
+            <ImageView
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:src="@drawable/long_white_french"
+                android:scaleType="centerCrop"
+                android:layout_marginBottom="10dp"/>
+
+
+            <TextView
+                android:id="@+id/long_white_french"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Square french tips. Square shape"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:padding="10dp"/>
+
+            <ImageView
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:src="@drawable/long_square_colour"
+                android:scaleType="centerCrop"
+                android:layout_marginBottom="10dp"/>
+
+
+            <TextView
+                android:id="@+id/long_square_colour"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Square french colourful french tips. Square shape"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:padding="10dp"/>
+
+            <ImageView
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:src="@drawable/leopard_print"
+                android:scaleType="centerCrop"
+                android:layout_marginBottom="10dp"/>
+
+
+            <TextView
+                android:id="@+id/leopard_print"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Square leopard print frenchies.Baby pink base"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:padding="10dp"/>
+
+            <TextView
+                android:id="@+id/short_nails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SHORT DESIGNS"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:layout_marginBottom="10dp"/>
+
+            <ImageView
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:src="@drawable/short_green"
+                android:scaleType="centerCrop"
+                android:layout_marginBottom="10dp"/>
+
+
+            <TextView
+                android:id="@+id/short_green"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Short basic green design. 3D art, chrome with baige base."
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:padding="10dp"/>
+
+            <ImageView
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:src="@drawable/short_orange"
+                android:scaleType="centerCrop"
+                android:layout_marginBottom="10dp"/>
+
+
+            <TextView
+                android:id="@+id/short_orange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Short basic orange and pink design. Baige base with silver lining."
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:padding="10dp"/>
+
+            <ImageView
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:src="@drawable/short_pink_french"
+                android:scaleType="centerCrop"
+                android:layout_marginBottom="10dp"/>
+
+
+            <TextView
+                android:id="@+id/short_pink_french"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Short basic pink glow in the dark french. Bbaby pink base."
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:padding="10dp"/>
+
+            <TextView
+                android:id="@+id/short_biab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BIAB DESIGNS"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:layout_marginBottom="10dp"/>
+
+            <ImageView
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:src="@drawable/short_french_pink"
+                android:scaleType="centerCrop"
+                android:layout_marginBottom="10dp"/>
+
+
+            <TextView
+                android:id="@+id/short_french_pink"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Short basic french, pink base. This is a BIAB set with airbrush pink."
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:padding="10dp"/>
+
+            <ImageView
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:src="@drawable/short_french"
+                android:scaleType="centerCrop"
+                android:layout_marginBottom="10dp"/>
+
+
+            <TextView
+                android:id="@+id/short_french_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Short basic french, pink base with silver lining. This is a BIAB."
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:padding="10dp"/>
+
+            <ImageView
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:src="@drawable/short_biab"
+                android:scaleType="centerCrop"
+                android:layout_marginBottom="10dp"/>
+
+
+            <TextView
+                android:id="@+id/short_biab_set"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Short basic french, pink base. This is a BIAB set."
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:padding="10dp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
 </FrameLayout>
