@@ -17,7 +17,7 @@
             android:gravity="center"
             android:padding="16dp">
 
-            <!-- Title -->
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -45,7 +45,7 @@
                 android:layout_height="250dp"
                 android:src="@drawable/almond_silver"
                 android:scaleType="centerCrop"
-                android:layout_marginBottom="10dp"/>
+                />
 
 
             <TextView
@@ -55,25 +55,28 @@
                 android:text="Silver Almond deisgn with baby pink base."
                 android:textSize="18sp"
                 android:textColor="@color/black"
+                android:fontFamily="sans-serif-light"
+                android:layout_marginBottom="20dp"
                 android:gravity="center"
-                android:textAlignment="center"
-                android:padding="10dp"/>
+                android:textAlignment="center" />
 
             <ImageView
                 android:layout_width="250dp"
                 android:layout_height="250dp"
                 android:src="@drawable/almond_red"
                 android:scaleType="centerCrop"
-                android:layout_marginBottom="10dp"/>
+               />
 
 
             <TextView
                 android:id="@+id/almond_red"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Almond with lepard print, red air brush effect."
+                android:text="Almond with leopard print, red air brush effect."
                 android:textSize="18sp"
                 android:textColor="@color/black"
+                android:fontFamily="sans-serif-light"
+                android:layout_marginBottom="20dp"
                 android:gravity="center"
                 android:textAlignment="center"
                 android:padding="10dp"/>
@@ -94,26 +97,27 @@
                 android:layout_height="250dp"
                 android:src="@drawable/long_white_french"
                 android:scaleType="centerCrop"
-                android:layout_marginBottom="10dp"/>
+                />
 
 
             <TextView
                 android:id="@+id/long_white_french"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Square french tips. Square shape"
+                android:text="Square french tips."
+                android:fontFamily="sans-serif-light"
+                android:layout_marginBottom="20dp"
                 android:textSize="18sp"
                 android:textColor="@color/black"
                 android:gravity="center"
-                android:textAlignment="center"
-                android:padding="10dp"/>
+                android:textAlignment="center" />
 
             <ImageView
                 android:layout_width="250dp"
                 android:layout_height="250dp"
                 android:src="@drawable/long_square_colour"
                 android:scaleType="centerCrop"
-                android:layout_marginBottom="10dp"/>
+                />
 
 
             <TextView
@@ -125,14 +129,15 @@
                 android:textColor="@color/black"
                 android:gravity="center"
                 android:textAlignment="center"
-                android:padding="10dp"/>
+                android:fontFamily="sans-serif-light"
+                android:layout_marginBottom="20dp" />
 
             <ImageView
                 android:layout_width="250dp"
                 android:layout_height="250dp"
                 android:src="@drawable/leopard_print"
                 android:scaleType="centerCrop"
-                android:layout_marginBottom="10dp"/>
+                />
 
 
             <TextView
@@ -144,7 +149,8 @@
                 android:textColor="@color/black"
                 android:gravity="center"
                 android:textAlignment="center"
-                android:padding="10dp"/>
+                android:fontFamily="sans-serif-light"
+                android:layout_marginBottom="20dp" />
 
             <TextView
                 android:id="@+id/short_nails"
@@ -162,7 +168,7 @@
                 android:layout_height="250dp"
                 android:src="@drawable/short_green"
                 android:scaleType="centerCrop"
-                android:layout_marginBottom="10dp"/>
+                />
 
 
             <TextView
@@ -174,14 +180,16 @@
                 android:textColor="@color/black"
                 android:gravity="center"
                 android:textAlignment="center"
-                android:padding="10dp"/>
+                android:fontFamily="sans-serif-light"
+                android:layout_marginBottom="20dp"
+                />
 
             <ImageView
                 android:layout_width="250dp"
                 android:layout_height="250dp"
                 android:src="@drawable/short_orange"
                 android:scaleType="centerCrop"
-                android:layout_marginBottom="10dp"/>
+                />
 
 
             <TextView
@@ -193,14 +201,15 @@
                 android:textColor="@color/black"
                 android:gravity="center"
                 android:textAlignment="center"
-                android:padding="10dp"/>
+                android:fontFamily="sans-serif-light"
+                android:layout_marginBottom="20dp" />
 
             <ImageView
                 android:layout_width="250dp"
                 android:layout_height="250dp"
                 android:src="@drawable/short_pink_french"
                 android:scaleType="centerCrop"
-                android:layout_marginBottom="10dp"/>
+                />
 
 
             <TextView
@@ -212,7 +221,9 @@
                 android:textColor="@color/black"
                 android:gravity="center"
                 android:textAlignment="center"
-                android:padding="10dp"/>
+                android:fontFamily="sans-serif-light"
+                android:layout_marginBottom="20dp"
+              />
 
             <TextView
                 android:id="@+id/short_biab"
@@ -230,7 +241,7 @@
                 android:layout_height="250dp"
                 android:src="@drawable/short_french_pink"
                 android:scaleType="centerCrop"
-                android:layout_marginBottom="10dp"/>
+                />
 
 
             <TextView
@@ -242,14 +253,16 @@
                 android:textColor="@color/black"
                 android:gravity="center"
                 android:textAlignment="center"
-                android:padding="10dp"/>
+                android:fontFamily="sans-serif-light"
+                android:layout_marginBottom="20dp"
+                />
 
             <ImageView
                 android:layout_width="250dp"
                 android:layout_height="250dp"
                 android:src="@drawable/short_french"
                 android:scaleType="centerCrop"
-                android:layout_marginBottom="10dp"/>
+                />
 
 
             <TextView
@@ -261,14 +274,16 @@
                 android:textColor="@color/black"
                 android:gravity="center"
                 android:textAlignment="center"
-                android:padding="10dp"/>
+                android:fontFamily="sans-serif-light"
+                android:layout_marginBottom="20dp"
+                />
 
             <ImageView
                 android:layout_width="250dp"
                 android:layout_height="250dp"
                 android:src="@drawable/short_biab"
                 android:scaleType="centerCrop"
-                android:layout_marginBottom="10dp"/>
+                />
 
 
             <TextView
@@ -280,7 +295,9 @@
                 android:textColor="@color/black"
                 android:gravity="center"
                 android:textAlignment="center"
-                android:padding="10dp"/>
+                android:fontFamily="sans-serif-light"
+                android:layout_marginBottom="20dp"
+                />
 
         </LinearLayout>
 
