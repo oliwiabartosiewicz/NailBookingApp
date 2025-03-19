@@ -6,11 +6,18 @@
     android:orientation="vertical"
     android:padding="16dp">
 
+    <!--reference for below calendar view-->
+    <!--IIScience (2016) How To Write a Harvard Reference for a Website. Available at: https://www.youtube.com/watch?v=w38pGBsj01A (Accessed: 18 March 2025).-->
     <CalendarView
         android:id="@+id/calendarView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:mcv_firstDayOfWeek="monday"
          />
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"/>
 
 </LinearLayout>

@@ -69,7 +69,8 @@ public class PersonFragment extends Fragment {
                     .addOnFailureListener(e -> Log.e("PersonFragment", "Error fetching user data", e));
         }
     }
-
+// reference for below Google (2025) Firebase Authentication. Available at: https://firebase.google.com/docs/auth/android/manage-users#sign_out (Accessed: 12 March 2025).
+// reference for below Stack Overflow. (2016). Properly log out a user from Android app. Available at: https://stackoverflow.com/questions/35541675/properly-log-out-a-user-from-android-app [Accessed 12 Mar. 2025].
     private void logoutUser() {
         mAuth.signOut();
         Intent intent = new Intent(getActivity(), MainActivity.class);

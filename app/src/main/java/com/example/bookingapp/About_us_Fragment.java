@@ -82,7 +82,7 @@ public class About_us_Fragment extends Fragment implements OnMapReadyCallback {
             if (instagramIntent.resolveActivity(requireActivity().getPackageManager()) != null) {
                 startActivity(instagramIntent);
             } else {
-                // If the Instagram app is not installed, open the link in a browser
+                // If the Instagram app is not installed, opens the link in a browser
                 instagramIntent.setData(Uri.parse(instagramUrl));
                 startActivity(instagramIntent);
             }
