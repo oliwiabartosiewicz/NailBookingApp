@@ -33,20 +33,15 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 loginButtonClicked(v);
             }
-
-
         });
     }
-
     @Override
     public void onStart() {
         super.onStart();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
-
         }
     }
-
 
     public void loginButtonClicked(View view) {
         EditText emailField = findViewById(R.id.editTextLoginEmail);

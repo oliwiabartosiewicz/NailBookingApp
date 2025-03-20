@@ -15,6 +15,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -37,7 +38,6 @@ public class BookingFragment extends Fragment {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         CalendarView calendarView = view.findViewById(R.id.calendarView);
         ListView listView = view.findViewById(R.id.listView);
-
         // reference for below array https://stackoverflow.com/questions/10972860/classcastexception-arraylist-cannot-be-cast-to-string
         // Initialise the adapter and ArrayList to store time slots
 
@@ -94,7 +94,7 @@ public class BookingFragment extends Fragment {
 
                 builder.setNegativeButton("Cancel", (dialog, which) -> dialog.dismiss());
 
-                // alert is to be shown here
+                // alert
                 AlertDialog alertDialog = builder.create();
                 alertDialog.show();
 
@@ -118,19 +118,22 @@ public class BookingFragment extends Fragment {
 
                         String firstName = documentSnapshot.getString("First name");
                         String lastName = documentSnapshot.getString("Surname");
+                        Log.d(TAG, "User email: " + userEmail);
 
 // ref for below Google (n.d.) Add data to Firestore Available at: https://firebase.google.com/docs/firestore/manage-data/add-data#java_2 (Accessed: 19 March 2025).
                         Map<String, Object> booked = new HashMap<>();
                         booked.put("FirstName", firstName);
                         booked.put("LastName", lastName);
+                        booked.put("Email",userEmail);
                         booked.put("Date", date);
                         booked.put("Time", time);
+                        Log.d(TAG, "User email: " + userEmail);
 
-                        db.collection("Booked")
-                                .document(currentUser.getEmail()).set(booked).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        db.collection("Booked").add(booked)
+                                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                     @Override
-                                    public void onSuccess(Void aVoid) {
-                                        Log.d(TAG, "DocumentSnapshot successfully written!");
+                                    public void onSuccess(DocumentReference documentReference) {
+                                        Log.d(TAG, "DocumentSnapshot successfully written!"+ documentReference.getId());
                                     }
                                 })
                                 .addOnFailureListener(new OnFailureListener() {
@@ -149,7 +152,7 @@ public class BookingFragment extends Fragment {
 
     private void removeBookingSlot(String date, String time){
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        // creating new hashmap
+
         Map<String, Object> booked = new HashMap<>();
 // creating an array puts all the appointments back in other than the one selected by user
         List<String> existing_appoints = new ArrayList<>();
@@ -158,8 +161,8 @@ public class BookingFragment extends Fragment {
                 existing_appoints.add(ts);
             }
         }
-        booked.put("availableTimes", existing_appoints);
 
+        booked.put("availableTimes", existing_appoints);
         db.collection("appointments")
                 .document(date).set(booked).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
