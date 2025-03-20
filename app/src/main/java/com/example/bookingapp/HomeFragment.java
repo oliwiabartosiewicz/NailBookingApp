@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -16,13 +17,18 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 public class HomeFragment extends Fragment {
     public HomeFragment() {
     }
@@ -79,7 +85,6 @@ public class HomeFragment extends Fragment {
         }
     }
 
-
     private List<QueryDocumentSnapshot> booked_appointments = new ArrayList<QueryDocumentSnapshot>();
     private void loadAppointments() {
         FirebaseUser currentUser = mAuth.getCurrentUser();
@@ -106,8 +111,8 @@ public class HomeFragment extends Fragment {
     }
 
     // deletes the appointment by one that was selected from firebase
-    private void delete(String appointmentId) {
-        String appointment_id = booked_appointments.get(0).getId();
+    private void delete(int appointmentId) {
+        String appointment_id = booked_appointments.get(appointmentId).getId();
         db.collection("Booked").document(appointment_id).delete();
     }
 
@@ -119,12 +124,13 @@ public class HomeFragment extends Fragment {
                     String selectedDate = selectedAppointment.getString("Date");
                     String selectedTimeSlot = selectedAppointment.getString("Time");
                     String appointmentId = selectedAppointment.getId();
+
      Log.d(TAG, "Clicked time slot: " + selectedAppointment);
      AlertDialog.Builder builder = new AlertDialog.Builder(requireContext(), R.style.AlertDialogStyle);
      builder.setTitle("Cancel Appointment");
      builder.setMessage("Are you sure you want to cancel your appointment on " + selectedDate + " at " + selectedTimeSlot + "?");
      builder.setPositiveButton("Cancel Appointment", (dialog, which) -> {
-         delete(appointmentId);
+         delete(position);
          // cancel appointments functions
          Toast.makeText(requireContext(), "Appointment cancelled successfully!", Toast.LENGTH_LONG).show();
      });
@@ -132,9 +138,52 @@ public class HomeFragment extends Fragment {
      // alert is to be shown here
      AlertDialog alertDialog = builder.create();
      alertDialog.show();
+     fetchAppointments(selectedDate,selectedTimeSlot);
  });
 }
+// function fetches the data from firebase  under collection called appointments, it then
+private void fetchAppointments(String selectedDate, String returningTime) {
+        List<String> times_for_date = new ArrayList<>();
+    db.collection("appointments")
+            .document(selectedDate.strip()).get()
+            .addOnSuccessListener(
+                    queryDocumentSnapshots -> {
+                        Log.d(TAG, "The data from document" + queryDocumentSnapshots.get("availableTimes"));
+                        // Clear old data before adding new time slots
 
 
+                        //reference for below Stack Overflow (2018) How to get an array from Firestore? Available at: https://stackoverflow.com/questions/50233281/how-to-get-an-array-from-firestore (Accessed: 19 March 2025).
+                        List<String> group = (List<String>) queryDocumentSnapshots.get("availableTimes");
 
+                        if (group != null && !group.isEmpty()) {
+                            // Add each available time slot (using ID as time slot)
+                            for (String document : group) {
+                                times_for_date.add(document);
+
+                            }
+                            Log.d(TAG, "Data fetched from FB: " + group.toString());
+                        } else {
+                            Toast.makeText(requireContext(), "No available times for this date.", Toast.LENGTH_SHORT).show();
+                            Log.d(TAG, "No available times for this date.");
+                        }
+                        times_for_date.add(returningTime);
+                       // times_for_date.sort(appointmentsListView);
+                        Map<String, Object> booked = new HashMap<>();
+                        booked.put("availableTimes", times_for_date);
+                        db.collection("appointments")
+                                .document(selectedDate).set(booked).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void aVoid) {
+                                        Log.d(TAG, "DocumentSnapshot successfully written!");
+                                    }
+                                })
+                                .addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Log.w(TAG, "Error writing document", e);
+                                    }
+                                });
+                    }
+            );
+    }
     }
