@@ -1,4 +1,5 @@
 package com.example.bookingapp;
+import android.app.AlertDialog;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -22,7 +23,7 @@ import java.util.Map;
 
 public class BookingFragment extends Fragment {
     private static final String TAG = "BookingFragment";
-
+    ArrayList<String> timeSlots = new ArrayList<>();
     public BookingFragment() {
     }
 
@@ -39,18 +40,15 @@ public class BookingFragment extends Fragment {
 
         // reference for below array https://stackoverflow.com/questions/10972860/classcastexception-arraylist-cannot-be-cast-to-string
         // Initialise the adapter and ArrayList to store time slots
-        ArrayList<String> timeSlots = new ArrayList<>();
+
         ArrayAdapter<String> adapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_list_item_1, timeSlots);
         listView.setAdapter(adapter);
 
-
-        // CalendarView listener to fetch time slots for selected date
         calendarView.setOnDateChangeListener((view1, year, month, dayOfMonth) -> {
             Log.d(TAG, String.valueOf(dayOfMonth) + "day of the month");
             Log.d(TAG, String.valueOf(month) + " the month");
             Log.d(TAG, String.valueOf(year) + " the year");
 
-            // Format the selected date as dd-MM-yyyy
             String selectedDate = String.format("%02d-%02d-%04d", dayOfMonth, month + 1, year);
             Log.d(TAG, "Selected Date " + selectedDate);
 
@@ -67,7 +65,7 @@ public class BookingFragment extends Fragment {
                                 List<String> group = (List<String>) queryDocumentSnapshots.get("availableTimes");
 
                                 if (group != null && !group.isEmpty()) {
-                                    // Add each available time slot (using document ID as time slot)
+                                    // Add each available time slot (using ID as time slot)
                                     for (String document : group) {
                                         timeSlots.add(document);
                                     }
@@ -79,12 +77,27 @@ public class BookingFragment extends Fragment {
                                 adapter.notifyDataSetChanged();
                             }
                     );
-            // created by CHAT GPT
+            // created by CHAT GPT below 3 lines, then edited myself
             listView.setOnItemClickListener((parent, view2, position, id) -> {
                 String selectedTimeSlot = timeSlots.get(position);
                 Log.d(TAG, "Clicked time slot: " + selectedTimeSlot);
-                bookAppointments(selectedDate,selectedTimeSlot);
-                Toast.makeText(requireContext(), "Selected: " + selectedTimeSlot, Toast.LENGTH_SHORT).show();
+
+                //Ref for below Stack Overflow (2021) Creating dialogue box pop up Android Studio Available at: https://stackoverflow.com/questions/66297577/creating-dialogue-box-pop-up-android-studio (Accessed: 19 March 2025).
+                AlertDialog.Builder builder = new AlertDialog.Builder(requireContext(), R.style.AlertDialogStyle);
+                builder.setTitle("Confirm Appointment");
+                builder.setMessage("Please confirm the appointment "+" on "+selectedDate+" at "+selectedTimeSlot);
+
+                builder.setPositiveButton("Confirm", (dialog, which) -> {
+                    bookAppointments(selectedDate, selectedTimeSlot);
+                    Toast.makeText(requireContext(), "Appointment booked successfully!", Toast.LENGTH_LONG).show();
+                });
+
+                builder.setNegativeButton("Cancel", (dialog, which) -> dialog.dismiss());
+
+                // alert is to be shown here
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+
             });
 
 
@@ -108,10 +121,10 @@ public class BookingFragment extends Fragment {
 
 // ref for below Google (n.d.) Add data to Firestore Available at: https://firebase.google.com/docs/firestore/manage-data/add-data#java_2 (Accessed: 19 March 2025).
                         Map<String, Object> booked = new HashMap<>();
-                        booked.put("FirstName",firstName);
-                        booked.put("LastName",lastName);
-                        booked.put("Date",date);
-                        booked.put("Time",time);
+                        booked.put("FirstName", firstName);
+                        booked.put("LastName", lastName);
+                        booked.put("Date", date);
+                        booked.put("Time", time);
 
                         db.collection("Booked")
                                 .document(currentUser.getEmail()).set(booked).addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -127,16 +140,40 @@ public class BookingFragment extends Fragment {
                                     }
                                 });
                     }
+                    removeBookingSlot(date,time);
                 })
                 .addOnFailureListener(e -> Log.e("PersonFragment", "Error fetching user data", e));
+
+
     }
 
+    private void removeBookingSlot(String date, String time){
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        // creating new hashmap
+        Map<String, Object> booked = new HashMap<>();
+// creating an array puts all the appointments back in other than the one selected by user
+        List<String> existing_appoints = new ArrayList<>();
+        for(String ts : timeSlots) {
+            if(!ts.equalsIgnoreCase(time)) {
+                existing_appoints.add(ts);
+            }
+        }
+        booked.put("availableTimes", existing_appoints);
 
-
-
-
-
-
+        db.collection("appointments")
+                .document(date).set(booked).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d(TAG, "DocumentSnapshot successfully written!");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w(TAG, "Error writing document", e);
+                    }
+                });
+    }
 
 
     }
