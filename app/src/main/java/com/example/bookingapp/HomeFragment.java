@@ -25,6 +25,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -123,7 +124,6 @@ public class HomeFragment extends Fragment {
                     QueryDocumentSnapshot selectedAppointment = booked_appointments.get(position);
                     String selectedDate = selectedAppointment.getString("Date");
                     String selectedTimeSlot = selectedAppointment.getString("Time");
-                    String appointmentId = selectedAppointment.getId();
 
      Log.d(TAG, "Clicked time slot: " + selectedAppointment);
      AlertDialog.Builder builder = new AlertDialog.Builder(requireContext(), R.style.AlertDialogStyle);
@@ -167,6 +167,7 @@ private void fetchAppointments(String selectedDate, String returningTime) {
                             Log.d(TAG, "No available times for this date.");
                         }
                         times_for_date.add(returningTime);
+                        Collections.sort(times_for_date);
                        // times_for_date.sort(appointmentsListView);
                         Map<String, Object> booked = new HashMap<>();
                         booked.put("availableTimes", times_for_date);

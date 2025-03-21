@@ -1,0 +1,122 @@
+commit 0dc2652588abdc6fce27381848fd57eaf867bf14
+Author: oliwiabartosiewicz <n0803767@ntu.ac.uk>
+Date:   Thu Mar 20 17:51:57 2025 +0000
+
+    i have updated delete funtion, and introduces a fetchAppointments funtion where it collects the appointments from firebase, puts them in strings, as well as swapping them back in when user cancels, so it appears back in available appointments.
+
+commit a0bf4af8a659c2e5c1c32589aa88441d182f2acc
+Author: oliwiabartosiewicz <n0803767@ntu.ac.uk>
+Date:   Thu Mar 20 15:58:16 2025 +0000
+
+    i have amended when booking is made the id is now randomised. this then helps me get the email from within the field to use in other functions. i have also create a delete appointment function with an alert in home fragment. in my booking fragment, i have also  removed a booking slot from availble times, when someone books an appointment and added a counter to appointments when user books, so they display in home fragment with the list view.
+
+commit b8922ff0702d4ea196191ec629f06f432a842c4c
+Author: oliwiabartosiewicz <n0803767@ntu.ac.uk>
+Date:   Thu Mar 20 10:22:38 2025 +0000
+
+    I have implemented a function where it removes
+    booking slot when user
+    confirms their selected
+    time.
+
+commit 3f09234f4a8b4135b8d3cf8aaad2f593253c95ee
+Author: oliwiabartosiewicz <n0803767@ntu.ac.uk>
+Date:   Wed Mar 19 19:44:04 2025 +0000
+
+    when time slot is now pressed, it books the appointment and sends this to firebase creating a folder for appointments books, i am able to see name, last name and,date and time, id is email.
+
+commit 4bdd3aec0b24511cab8bb7554073686d9bcc48ee
+Author: oliwiabartosiewicz <n0803767@ntu.ac.uk>
+Date:   Wed Mar 19 15:28:50 2025 +0000
+
+    I have added the times to calendar to be displayed in an array in a list view in my booking fragment stored in firebase.
+
+commit a3ad00e8b41e9cfc75f0c4e977ca57662895a563
+Author: oliwiabartosiewicz <n0803767@ntu.ac.uk>
+Date:   Tue Mar 18 20:06:53 2025 +0000
+
+    I have added a profile section where users can view their information from firebase. it also welcomes them to the app by their name. also log out button when the user presses the log out button, it takes them back to main activity where they can sign up or log in back to their account
+
+commit dc42917c33e73f7f1bc7baba6af6c2aa4a406318
+Author: oliwiabartosiewicz <n0803767@ntu.ac.uk>
+Date:   Fri Mar 14 14:31:43 2025 +0000
+
+    i  have added, gallery to my app. with short description for each
+
+commit f836f5c22c54af43748358ce034981cd01d3e81b
+Author: oliwiabartosiewicz <n0803767@ntu.ac.uk>
+Date:   Fri Mar 14 13:01:57 2025 +0000
+
+    I have added firebase storage to my app, where users data is stored via email in firebase.
+
+commit 755f2b698785d376a7190bb099918dde9a6834a8
+Author: oliwiabartosiewicz <n0803767@ntu.ac.uk>
+Date:   Fri Mar 7 14:33:01 2025 +0000
+
+    I have added intents for phone number, google maps, email and instagram to the app so when user presses this in about us fragment, then it wil send them to do the particular activity they chose.
+
+commit 75e5eb50f4ede14d264df67534c2ff6ba55725a1
+Author: oliwiabartosiewicz <n0803767@ntu.ac.uk>
+Date:   Thu Mar 6 17:29:56 2025 +0000
+
+    i have added scroll view and margins to the map making it more practical, i have also added linear layout for opening hours. my app also now opens straight into host activity when logged in previously
+
+commit 91fdb2924c9fca5c59d3438e9e042833782ce379
+Author: oliwiabartosiewicz <n0803767@ntu.ac.uk>
+Date:   Thu Mar 6 10:49:02 2025 +0000
+
+    i have completed the about us fragment, with about us text and contact us details as well as shifted the map to the bottom of the page rather than top.
+
+commit 938c99de38647dccaded2e76e43af38426c4d674
+Author: oliwiabartosiewicz <n0803767@ntu.ac.uk>
+Date:   Fri Feb 28 22:36:50 2025 +0000
+
+    i have adapted the map so that its only showing in certain part of fragment. i initially struggled with moving this accros
+
+commit bfd14d1c7476494a33e4b9d3d16eba469a20b806
+Author: oliwiabartosiewicz <n0803767@ntu.ac.uk>
+Date:   Fri Feb 28 17:46:31 2025 +0000
+
+    i have added map  to  my fragment. this brings out the map when about us is pressed. adjusted  with correct location
+
+commit 50d5b852b109d60574fc121956638bf9fd592047
+Author: oliwiabartosiewicz <n0803767@ntu.ac.uk>
+Date:   Fri Feb 28 16:57:41 2025 +0000
+
+    i have added another fragment  called booking to the app
+
+commit c34a1e22adcb21a19260b7dd627d5a61a07b415f
+Author: oliwiabartosiewicz <n0803767@ntu.ac.uk>
+Date:   Thu Feb 27 18:01:49 2025 +0000
+
+    I have amended colours, and contract in my app. I have made sign up and log in buttons work and connect to new activity called host. I have also implemented fragments and bottom navigation bar with 4 fragments. each is working when pressed. log in and sign up button is now connected to activities where it takes me inside the app.
+
+commit d8df218fc445a7727a2182ded922b8ffcd8d3f2b
+Author: oliwiabartosiewicz <n0803767@ntu.ac.uk>
+Date:   Thu Feb 27 10:39:04 2025 +0000
+
+    I have changed the hint text to black. as well as fonts in my programme
+
+commit cfd4573c7bf58480ee0013ac0ca72fdd002bf552
+Author: oliwiabartosiewicz <n0803767@ntu.ac.uk>
+Date:   Mon Feb 24 00:12:15 2025 +0000
+
+    I have added new font to welcome scree, i have also added a background picture however, i am unable to make this work. When  i run this app, the image and shading keeping going in front of the buttons rather than the back. i am currently struggling to work this out.
+
+commit abaf1d6f34a84e4f0cd93891ed57b1688dd0adc9
+Author: oliwiabartosiewicz <n0803767@ntu.ac.uk>
+Date:   Sun Feb 23 16:22:16 2025 +0000
+
+    I have created, sign up and log in activities. I have realised that i did not like the layout of how it asked me to sign it straight away.  wanted to give the user the option of login or sign up along with some welcome message. these two screens then take you to chosen activity. I have als started to look at design of those screens and fonts. I have also added a list of colours. i may use later on.
+
+commit b3dc80a052656223be455cf60ed230a0d52895d0
+Author: oliwiabartosiewicz <n0803767@ntu.ac.uk>
+Date:   Sun Feb 23 13:14:18 2025 +0000
+
+    this is the initial step of Firebase Authentication for my app. i have set up initial page to sign in and create new account.
+
+commit bf3223ffd187e2a65d40f6d52c431d86d80fc22c
+Author: oliwiabartosiewicz <n0803767@ntu.ac.uk>
+Date:   Sun Feb 23 13:14:05 2025 +0000
+
+    this is the initial step of Firebase Authentication for my app. i have set up initial page to sign in and create new account.
