@@ -72,7 +72,7 @@ public class HomeFragment extends Fragment {
                     .addOnFailureListener(e -> Log.e("PersonFragment", "Error fetching user data", e));
         }
     }
-// total number of apointments booked
+// total number of apointments booked, searches by users email address within fields
     private void loadTotalAppointments() {
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
@@ -90,7 +90,7 @@ public class HomeFragment extends Fragment {
 //Stores the booked appointments from Firestore
     private List<QueryDocumentSnapshot> booked_appointments = new ArrayList<QueryDocumentSnapshot>();
 
-//Loads all booked appointments and displays them in ListView
+//Loads all booked appointments and displays them in ListView connected to that email address thats logged in
     private void loadAppointments() {
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {

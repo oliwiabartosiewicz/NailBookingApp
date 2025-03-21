@@ -146,7 +146,6 @@ public class BookingFragment extends Fragment {
 
     private void removeBookingSlot(String date, String time){
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-
         Map<String, Object> booked = new HashMap<>();
 // creating an array puts all the appointments back in other than the one selected by user
         List<String> existing_appoints = new ArrayList<>();
@@ -156,7 +155,8 @@ public class BookingFragment extends Fragment {
             }
         }
 
-        booked.put("availableTimes", existing_appoints);
+        booked.put("availableTimes", existing_appoints);//Put the updated list of available times into the map
+
         db.collection("appointments")
                 .document(date).set(booked).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
