@@ -54,7 +54,7 @@ public class About_us_Fragment extends Fragment implements OnMapReadyCallback {
         // ref for below Android Developers (2024) Verify intent resolution before launching. Available at: https://developer.android.com/reference/android/content/pm/PackageManager.html (Accessed: 7 March 2025).
         TextView phoneText = view.findViewById(R.id.phone_text);
         phoneText.setOnClickListener(v -> {
-            Uri phoneUri = Uri.parse("tel:+44123456789");
+            Uri phoneUri = Uri.parse("tel:+447871336450");
             Intent callIntent = new Intent(Intent.ACTION_DIAL, phoneUri);
             startActivity(callIntent);
         });
@@ -87,14 +87,10 @@ public class About_us_Fragment extends Fragment implements OnMapReadyCallback {
                 startActivity(instagramIntent);
             }
         });
-
-
         return view;
 
 
     }
-
-
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;

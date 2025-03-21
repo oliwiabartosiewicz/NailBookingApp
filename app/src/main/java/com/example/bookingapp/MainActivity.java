@@ -42,7 +42,7 @@ FirebaseAuth mAuth;
 
     }
 
-    /*@Override
+    @Override
     public void onStart() {
         super.onStart();
         mAuth=FirebaseAuth.getInstance();
@@ -51,6 +51,6 @@ FirebaseAuth mAuth;
             Intent intent = new Intent(this, host.class);
             startActivity(intent);
         }
-    }*/
+    }
 
 }

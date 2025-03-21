@@ -73,7 +73,7 @@ public class SignupActivity extends AppCompatActivity {
     }
 
     private void userInfo () {
-
+//Creates dictionary to store user
         Map<String, Object> user = new HashMap<>();
         EditText firstName = findViewById(R.id.editTextSignupFirstName);
         EditText lastName = findViewById(R.id.editTextSignupLastName);
@@ -81,12 +81,14 @@ public class SignupActivity extends AppCompatActivity {
         String slastName = lastName.getText().toString();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         String semail= currentUser.getEmail();
-
+// adds these to dictionary
         user.put("First name",sfirstName);
         user.put("Surname",slastName);
         user.put("email", semail);
 
+        // saves everything in firestore
         db.collection("users").document(semail).set(user)
+
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {

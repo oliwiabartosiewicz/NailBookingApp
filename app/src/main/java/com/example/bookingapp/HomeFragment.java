@@ -57,10 +57,12 @@ public class HomeFragment extends Fragment {
     }
 
     private void loadUserInfo() {
+        // welcomes user by their name
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
             String userEmail = currentUser.getEmail();
             db.collection("users").document(userEmail).get()
+                    //  Finds all bookings for the user thats logged in via email
                     .addOnSuccessListener(documentSnapshot -> {
                         if (documentSnapshot.exists()) {
                             String firstName = documentSnapshot.getString("First name");
@@ -70,7 +72,7 @@ public class HomeFragment extends Fragment {
                     .addOnFailureListener(e -> Log.e("PersonFragment", "Error fetching user data", e));
         }
     }
-
+// total number of apointments booked
     private void loadTotalAppointments() {
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
@@ -85,8 +87,10 @@ public class HomeFragment extends Fragment {
                     .addOnFailureListener(e -> Log.e("HomeFragment", "Error fetching appointments", e));
         }
     }
-
+//Stores the booked appointments from Firestore
     private List<QueryDocumentSnapshot> booked_appointments = new ArrayList<QueryDocumentSnapshot>();
+
+//Loads all booked appointments and displays them in ListView
     private void loadAppointments() {
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
@@ -99,6 +103,7 @@ public class HomeFragment extends Fragment {
                         for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
                             String appointmentDetails = "Date: " + document.getString("Date") +
                                     ", Time: " + document.getString("Time");
+                            //containing all appointment details
                             appointmentList.add(appointmentDetails);
                             booked_appointments.add(document);
                         }
@@ -118,6 +123,7 @@ public class HomeFragment extends Fragment {
     }
 
 // function gets the details from firebase in fields of the selected appointment then pops up an alert to ask if to cancel.
+    // generated with help of AI function CancelAppointmentAlert then edited to fit for my app
     private void CancelAppointmentAlert(){
         appointmentsListView
                 .setOnItemClickListener((parent, view2, position, id) -> {
@@ -141,37 +147,36 @@ public class HomeFragment extends Fragment {
      fetchAppointments(selectedDate,selectedTimeSlot);
  });
 }
-// function fetches the data from firebase  under collection called appointments, it then
+// Updates available appointment slots in Firestore
 private void fetchAppointments(String selectedDate, String returningTime) {
-        List<String> times_for_date = new ArrayList<>();
+        List<String> times_for_date = new ArrayList<>();// times_fot_date stores available appointments
     db.collection("appointments")
             .document(selectedDate.strip()).get()
             .addOnSuccessListener(
                     queryDocumentSnapshots -> {
                         Log.d(TAG, "The data from document" + queryDocumentSnapshots.get("availableTimes"));
-                        // Clear old data before adding new time slots
 
 
                         //reference for below Stack Overflow (2018) How to get an array from Firestore? Available at: https://stackoverflow.com/questions/50233281/how-to-get-an-array-from-firestore (Accessed: 19 March 2025).
                         List<String> group = (List<String>) queryDocumentSnapshots.get("availableTimes");
+                        //Gets available time slots from Firestore
 
                         if (group != null && !group.isEmpty()) {
                             // Add each available time slot (using ID as time slot)
                             for (String document : group) {
+                                // adds everything in a list
                                 times_for_date.add(document);
-
                             }
                             Log.d(TAG, "Data fetched from FB: " + group.toString());
                         } else {
                             Toast.makeText(requireContext(), "No available times for this date.", Toast.LENGTH_SHORT).show();
                             Log.d(TAG, "No available times for this date.");
                         }
-                        times_for_date.add(returningTime);
+                        times_for_date.add(returningTime);// adds cancelled appoints to the list again
                         Collections.sort(times_for_date);
-                       // times_for_date.sort(appointmentsListView);
                         Map<String, Object> booked = new HashMap<>();
                         booked.put("availableTimes", times_for_date);
-                        db.collection("appointments")
+                        db.collection("appointments")// new availability updated
                                 .document(selectedDate).set(booked).addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void aVoid) {

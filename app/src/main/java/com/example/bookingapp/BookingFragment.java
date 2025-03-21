@@ -24,7 +24,7 @@ import java.util.Map;
 
 public class BookingFragment extends Fragment {
     private static final String TAG = "BookingFragment";
-    ArrayList<String> timeSlots = new ArrayList<>();
+    ArrayList<String> timeSlots = new ArrayList<>();// available appoints
     public BookingFragment() {
     }
 
@@ -39,8 +39,7 @@ public class BookingFragment extends Fragment {
         CalendarView calendarView = view.findViewById(R.id.calendarView);
         ListView listView = view.findViewById(R.id.listView);
         // reference for below array https://stackoverflow.com/questions/10972860/classcastexception-arraylist-cannot-be-cast-to-string
-        // Initialise the adapter and ArrayList to store time slots
-
+        // adapter and ArrayList to store time slots
         ArrayAdapter<String> adapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_list_item_1, timeSlots);
         listView.setAdapter(adapter);
 
@@ -48,7 +47,7 @@ public class BookingFragment extends Fragment {
             Log.d(TAG, String.valueOf(dayOfMonth) + "day of the month");
             Log.d(TAG, String.valueOf(month) + " the month");
             Log.d(TAG, String.valueOf(year) + " the year");
-
+// ref for date input OpenAI. (2025) Why use String.format in Java for date formatting?. Available at: https://chat.openai.com/ (Accessed:18 March 2025).
             String selectedDate = String.format("%02d-%02d-%04d", dayOfMonth, month + 1, year);
             Log.d(TAG, "Selected Date " + selectedDate);
 
@@ -91,16 +90,11 @@ public class BookingFragment extends Fragment {
                     bookAppointments(selectedDate, selectedTimeSlot);
                     Toast.makeText(requireContext(), "Appointment booked successfully!", Toast.LENGTH_LONG).show();
                 });
-
                 builder.setNegativeButton("Cancel", (dialog, which) -> dialog.dismiss());
-
                 // alert
                 AlertDialog alertDialog = builder.create();
                 alertDialog.show();
-
             });
-
-
         });
         return view;
     }
