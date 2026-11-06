@@ -78,7 +78,7 @@ Come along as I learn and develop—your support means everything! Let’s creat
             android:id="@+id/phone_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Phone number: +44 7871336450"
+            android:text="Phone number: +44 7654 667 436"
             android:textSize="18sp"
             android:clickable="true"
             android:focusable="true"
