@@ -17,6 +17,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
@@ -73,7 +74,7 @@ public class SignupActivity extends AppCompatActivity {
     }
 
     private void userInfo () {
-//Creates dictionary to store user
+
         Map<String, Object> user = new HashMap<>();
         EditText firstName = findViewById(R.id.editTextSignupFirstName);
         EditText lastName = findViewById(R.id.editTextSignupLastName);
@@ -81,18 +82,17 @@ public class SignupActivity extends AppCompatActivity {
         String slastName = lastName.getText().toString();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         String semail= currentUser.getEmail();
-// adds these to dictionary
+
         user.put("First name",sfirstName);
         user.put("Surname",slastName);
         user.put("email", semail);
 
         // saves everything in firestore
-        db.collection("users").document(semail).set(user)
-
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
+        db.collection("users").add(user)
+                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
-                    public void onSuccess(Void aVoid) {
-                        Log.d("SignupActivity", "DocumentSnapshot successfully written!"); }
+                    public void onSuccess(DocumentReference documentReference) {
+                        Log.d("SignupActivity", "DocumentSnapshot successfully written!"+ documentReference.getId()); }
                     })
                             .addOnFailureListener(new OnFailureListener() {
                         @Override

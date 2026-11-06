@@ -96,7 +96,7 @@ public class About_us_Fragment extends Fragment implements OnMapReadyCallback {
         mMap = googleMap;
 // coordinates for my location
         LatLng location = new LatLng(52.94679514301795, -1.1414552874246011);
-        mMap.addMarker(new MarkerOptions().position(location).title("Marker in Business Location"));
+        mMap.addMarker(new MarkerOptions().position(location).title("LiwsNailz"));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 15));
     }
 

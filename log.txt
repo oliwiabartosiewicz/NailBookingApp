@@ -1,3 +1,27 @@
+commit 49a76784aac43a2872b3bca71d41520e7886da71
+Author: oliwiabartosiewicz <n0803767@ntu.ac.uk>
+Date:   Fri Mar 21 12:40:54 2025 +0000
+
+    i have added references for the final code for the assessment
+
+commit aafc4b89c9582b0f1af8a3592932d5ce43ee4ab1
+Author: oliwiabartosiewicz <n0803767@ntu.ac.uk>
+Date:   Fri Mar 21 11:59:11 2025 +0000
+
+    i have added references for the final code for the assessment
+
+commit 826ed6addfb08bed3bd34fbcdcd4261de35cba73
+Author: oliwiabartosiewicz <n0803767@ntu.ac.uk>
+Date:   Fri Mar 21 00:36:05 2025 +0000
+
+    I have changed image size as well as adding some text
+
+commit a1ffe327b8544cc3c09d3f5655427faceed07603
+Author: oliwiabartosiewicz <n0803767@ntu.ac.uk>
+Date:   Fri Mar 21 00:29:48 2025 +0000
+
+    I  have put my appointment times in order when appointments are bing put back into availability calendar.
+
 commit 0dc2652588abdc6fce27381848fd57eaf867bf14
 Author: oliwiabartosiewicz <n0803767@ntu.ac.uk>
 Date:   Thu Mar 20 17:51:57 2025 +0000
